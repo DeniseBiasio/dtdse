@@ -5,28 +5,37 @@
   box-sizing: border-box; /* Assicurati che padding e bordo non influenzino le dimensioni degli elementi */
 }
 
+/* Variabili CSS per i colori */
+:root {
+  --primary-color: #333;
+  --hover-color: #575757;
+  --text-color: white;
+  --secondary-color: #aaa;
+  --overlay-color: rgba(0, 0, 0, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 /*Font*/
-.homemade-apple-regular {
+body, h1, p, .homemade-apple {
   font-family: "Homemade Apple", serif;
   font-weight: 400;
   font-style: normal;
 }
+footer {
+  font-family: "Josefin Slab", serif;
+}
 
 /* Impostazioni base per html e body */
 html, body {
-  height: 100%; /* Assicura che occupino tutta l'altezza */
-  margin: 0;    /* Rimuove eventuali margini di default */
-  padding: 0;
+  height: 100%;
 }
-
-/* Aggiungi un padding-top per evitare che la navbar copra il contenuto */
 body {
   padding-top: 50px; /* Altezza della navbar fissa */
 }
 
 /* Navbar */
 nav {
-  background-color: #333;
+  background-color: var(--primary-color);
   height: 50px;
   position: fixed;
   width: 100%;
@@ -34,71 +43,43 @@ nav {
   left: 0;
   z-index: 1000;
   display: flex;
-  justify-content: flex-end;  /* Allinea tutto a destra */
+  justify-content: flex-end;
   align-items: center;
   padding: 0 20px;
-  box-sizing: border-box;
 }
-
-/* Stile della lista della navbar */
 nav ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  justify-content: flex-end; /* Allinea tutti gli elementi a destra */
+  justify-content: flex-end;
   align-items: center;
 }
-
-/* Stile per "About" come <p> */
 nav ul li p {
-  display: block;
-  color: white;
+  color: var(--text-color);
   padding: 15px 20px;
-  margin: 0;
   font-size: 20px;
-  cursor: pointer; /* Indica che è cliccabile */
+  cursor: pointer;
 }
-
-/* Hover su "About" */
 nav ul li p:hover {
-  background-color: #575757;
+  background-color: var(--hover-color);
 }
-
-/* Stile per il menu a tendina */
 nav ul li ul {
   display: none;
   position: absolute;
   top: 100%;
-  right: 0; /* Allinea la tendina a destra */
-  background-color: #333;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  right: 0;
+  background-color: var(--primary-color);
   border: 1px solid #444;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  z-index: 1100;
+  box-shadow: 0px 4px 6px var(--shadow-color);
   min-width: 200px;
-  white-space: nowrap;
-  width: auto;
 }
-
-/* Link del menu a tendina */
 nav ul li ul li a {
   padding: 10px 15px;
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
-  background-color: #333;
-  display: block;
-  white-space: nowrap;
 }
-
-/* Hover sui link del menu a tendina */
 nav ul li ul li a:hover {
-  background-color: #575757;
+  background-color: var(--hover-color);
 }
-
-/* Mostra il menu a tendina al passaggio del mouse */
 nav ul li:hover ul {
   display: block;
 }
@@ -106,185 +87,127 @@ nav ul li:hover ul {
 /* Split Screen */
 .split-screen {
   display: flex;
-  height: 100vh; /* Occupare l'intera altezza della finestra */
-  position: relative; /* Necessario per il posizionamento della sezione introduttiva */
-  margin: 0; /* Rimuove eventuali margini che potrebbero causare spazio bianco */
-  padding: 0; /* Rimuove padding che potrebbe interferire */
+  height: 100vh;
 }
-
-/* Impostazioni generali per i blocchi laterali */
 .split-screen .left, .split-screen .right {
-  flex: 1; /* Occupa metà della larghezza ciascuno */
-  padding: 0; /* Rimuove il padding che potrebbe interferire */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Necessario per l'overlay opaco */
-  z-index: 1; /* Mantieni un z-index inferiore rispetto al testo */
-  background-size: cover; /* Adatta l'immagine per coprire l'intera sezione */
-  background-position: center; /* Centra l'immagine */
-  color: white; /* Colore bianco per il testo */
-  text-align: center; /* Allinea il testo al centro */
-  margin: 0; /* Rimuove margini che potrebbero creare spazio */
-  height: 100%; /* Imposta l'altezza al 100% per coprire l'intera finestra */
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+  text-align: center;
 }
-
-/* Aggiunge un overlay opaco */
 .split-screen .left::before, .split-screen .right::before {
-  content: ''; /* Pseudo-elemento vuoto */
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* Colore nero con opacità 30% */
-  z-index: 1; /* Posiziona l'overlay sotto il testo */
+  background-color: var(--overlay-color);
+  z-index: 1;
 }
-
-/* Testo sopra l'overlay */
-.split-screen .left a, .split-screen .right a {
-  position: relative;
-  z-index: 2; /* Porta il contenuto sopra l'overlay */
-  text-decoration: none; /* Rimuove la sottolineatura */
-  color: inherit; /* Usa il colore impostato nel genitore */
-}
-
-/* Sfondo immagine per i div specifici */
 .split-screen .left {
   background-image: url("Left.jpg");
-  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
-  background-position: center; /* Centra l'immagine nel contenitore */
 }
-
 .split-screen .right {
   background-image: url("Right.jpg");
-  background-size: contain; /* Adatta l'immagine al contenitore mantenendo le proporzioni */
-  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
-  background-position: center; /* Centra l'immagine nel contenitore */
+  background-size: contain;
 }
-
-/* Stile per il contenuto del testo con sfondo opaco */
 .split-screen .text {
-  background-color: rgba(169, 169, 169, 0.8); /* Sfondo grigio semitrasparente */
-  padding: 20px; /* Spaziatura interna per separare il testo dai bordi */
-  border-radius: 10px; /* Arrotonda gli angoli per un aspetto più elegante */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunge una leggera ombra */
-  position: relative; /* Posiziona il contenuto sopra l'overlay */
-  z-index: 2; /* Assicura che il contenuto sia sopra l'overlay */
-  max-width: 80%; /* Limita la larghezza massima del contenuto */
-  text-align: center; /* Allinea il testo al centro */
+  background-color: rgba(169, 169, 169, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  max-width: 80%;
   font-size: 20px;
 }
-
-/* Aggiungi uno stile per i link dentro il testo */
 .split-screen .text a {
-  text-decoration: none; /* Rimuove la sottolineatura */
-  color: inherit; /* Usa il colore del testo circostante */
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Sezione intro che occupa lo spazio rimanente sotto la navbar */
+/* Intro Section */
 .intro {
-width: 100%;       /* Occupare tutta la larghezza */
-height: calc(100vh - 50px); /* Occupare tutta l'altezza meno l'altezza della navbar */
-background-image: url('Cut.jpg'); /* Aggiungi l'immagine di sfondo */
-background-size: cover; /* Adatta l'immagine per coprire tutto lo spazio */
-background-position: center; /* Centra l'immagine */
-display: flex;
-flex-direction: column;  /* Posiziona gli elementi verticalmente */
-justify-content: flex-start; /* Allinea il contenuto in alto */
-align-items: flex-start; /* Allinea il contenuto a sinistra */
-text-align: left; /* Allinea il testo a sinistra */
-padding: 20px; /* Aggiungi un po' di spazio intorno al testo */
-box-sizing: border-box; /* Assicura che il padding non influisca sulla dimensione */
-position: relative; /* Necessario per la posizione dell'overlay */
+  width: 100%;
+  height: calc(100vh - 50px);
+  background-image: url('Cut.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
 }
-
-/* Aggiungi un overlay opaco per evitare il bianco sotto il margine */
 .intro::before {
-content: ''; /* Pseudo-elemento vuoto */
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.3); /* Colore nero con opacità 30% */
-z-index: -1; /* Posiziona l'overlay dietro il testo */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-color);
+  z-index: -1;
 }
-
-/* Testo all'interno della sezione intro */
-.intro h1, .intro p {
-color: white; /* Colore del testo */
-margin: 0;    /* Rimuove il margine predefinito */
-font-family: "Homemade Apple", serif;
-}
-
 .intro h1 {
-font-size: 3rem;
+  font-size: 3rem;
 }
-
 .intro p {
-font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 /* Bottone */
 .button {
-display: inline-block; /* Fa sì che il link venga trattato come un bottone */
-padding: 10px 20px; /* Padding per rendere il bottone più grande */
-color: white; /* Colore del testo */
-background-color: transparent; /* Senza sfondo */
-border: 0.5px solid white; /* Bordi sottili e bianchi */
-text-decoration: none; /* Rimuove la sottolineatura */
-font-size: 20px; /* Aumenta la dimensione del testo */
-border-radius: 5px; /* Rende i bordi del bottone arrotondati */
-transition: all 0.3s ease; /* Transizione fluida per hover */
-margin-top: 10px; /* Spazio sopra il bottone */
-position: absolute;
-top: 20%; /* Posiziona l'elemento a metà della pagina */
-left: 20%; /* Posiziona l'elemento a metà della pagina */
+  display: inline-block;
+  padding: 10px 20px;
+  color: var(--text-color);
+  border: 0.5px solid var(--text-color);
+  font-size: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  position: absolute;
+  top: 20%;
+  left: 20%;
 }
-
-/* Hover del bottone */
 .button:hover {
-background-color: white; /* Cambia lo sfondo a bianco */
-color: #333; /* Colore del testo quando hover */
+  background-color: var(--text-color);
+  color: var(--primary-color);
 }
 
-/* Link del bottone */
-.button a {
-color: inherit; /* Colore del link uguale al bottone */
-text-decoration: none; /* Rimuove la sottolineatura */
-}
-
-.button a:hover {
-color: #333; /* Colore del testo quando hover */
-}
-
-/*Footer*/
-/* Stile per il footer */
+/* Footer */
 footer {
-background-color: #333; /* Colore di sfondo uguale al navbar */
-color: white; /* Colore del testo */
-padding: 20px 0; /* Spaziatura verticale */
-text-align: center; /* Centra il testo */
-font-family: "Josefin Slab", serif;
-width: 100%; /* Occupa tutta la larghezza */
-position: relative; /* Mantiene il footer al fondo del contenuto */
-font-size: 0.9rem; /* Dimensione leggermente più piccola per il testo del footer */
-border-top: 1px solid #444; /* Bordo superiore per separare visivamente il footer */
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
 }
-
-/* Stile per i paragrafi all'interno del footer */
 footer p {
-margin: 10px 0; /* Spaziatura verticale tra i paragrafi */
+  margin: 10px 0;
 }
-
-/* Stile per i link nel footer */
 footer a {
-color: #aaa; /* Colore del link */
-text-decoration: none; /* Rimuove la sottolineatura */
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
 }
 
-footer a:hover {
-color: white; /* Cambia colore al passaggio del mouse */
-text-decoration: underline; /* Aggiunge una sottolineatura al passaggio del mouse */
+/* Media Queries per la responsività */
+@media (max-width: 768px) {
+  .button {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+  .intro h1 {
+    font-size: 2rem;
+  }
+  .intro p {
+    font-size: 1.2rem;
+  }
 }
