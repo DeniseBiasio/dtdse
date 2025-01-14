@@ -150,17 +150,19 @@ nav ul li:hover ul {
 
 /* Sfondo immagine per i div specifici */
 .split-screen .left {
-  background-image: url("../imgs/Left.jpg");
-  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
-  background-position: center; /* Centra l'immagine nel contenitore */
+  background-image: url("../imgs/Left.jpg"); /* Percorso corretto */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .split-screen .right {
-  background-image: url("../imgs/Right.jpg");
-  background-size: contain; /* Adatta l'immagine al contenitore mantenendo le proporzioni */
-  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
-  background-position: center; /* Centra l'immagine nel contenitore */
+  background-image: url("../imgs/Right.jpg"); /* Percorso corretto */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
+
 
 /* Stile per il contenuto del testo con sfondo opaco */
 .split-screen .text {
@@ -183,20 +185,21 @@ nav ul li:hover ul {
 
 /* Sezione intro che occupa lo spazio rimanente sotto la navbar */
 .intro {
-width: 100%;       /* Occupare tutta la larghezza */
-height: calc(100vh - 50px); /* Occupare tutta l'altezza meno l'altezza della navbar */
-background-image: url('../imgs/Homepage.jpg'); /* Aggiungi l'immagine di sfondo */
-background-size: cover; /* Adatta l'immagine per coprire tutto lo spazio */
-background-position: center; /* Centra l'immagine */
-display: flex;
-flex-direction: column;  /* Posiziona gli elementi verticalmente */
-justify-content: flex-start; /* Allinea il contenuto in alto */
-align-items: flex-start; /* Allinea il contenuto a sinistra */
-text-align: left; /* Allinea il testo a sinistra */
-padding: 20px; /* Aggiungi un po' di spazio intorno al testo */
-box-sizing: border-box; /* Assicura che il padding non influisca sulla dimensione */
-position: relative; /* Necessario per la posizione dell'overlay */
+  background-image: url("../imgs/Homepage.jpg"); /* Percorso corretto */
+  background-size: cover;
+  background-position: center;
+  width: 100%;       /* Occupare tutta la larghezza */
+  height: calc(100vh - 50px); /* Occupare tutta l'altezza meno l'altezza della navbar */
+  display: flex;
+  flex-direction: column;  /* Posiziona gli elementi verticalmente */
+  justify-content: flex-start; /* Allinea il contenuto in alto */
+  align-items: flex-start; /* Allinea il contenuto a sinistra */
+  text-align: left; /* Allinea il testo a sinistra */
+  padding: 20px; /* Aggiungi un po' di spazio intorno al testo */
+  box-sizing: border-box; /* Assicura che il padding non influisca sulla dimensione */
+  position: relative; /* Necessario per la posizione dell'overlay */
 }
+
 
 /* Aggiungi un overlay opaco per evitare il bianco sotto il margine */
 .intro::before {
