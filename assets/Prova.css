@@ -150,13 +150,13 @@ nav ul li:hover ul {
 
 /* Sfondo immagine per i div specifici */
 .split-screen .left {
-  background-image: url("Left.jpg");
+  background-image: url("imgs/Left.jpg");
   background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
   background-position: center; /* Centra l'immagine nel contenitore */
 }
 
 .split-screen .right {
-  background-image: url("Right.jpg");
+  background-image: url("imgs/Right.jpg");
   background-size: contain; /* Adatta l'immagine al contenitore mantenendo le proporzioni */
   background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
   background-position: center; /* Centra l'immagine nel contenitore */
@@ -185,7 +185,7 @@ nav ul li:hover ul {
 .intro {
 width: 100%;       /* Occupare tutta la larghezza */
 height: calc(100vh - 50px); /* Occupare tutta l'altezza meno l'altezza della navbar */
-background-image: url('Cut.jpg'); /* Aggiungi l'immagine di sfondo */
+background-image: url('imgs/Homepage.jpg'); /* Aggiungi l'immagine di sfondo */
 background-size: cover; /* Adatta l'immagine per coprire tutto lo spazio */
 background-position: center; /* Centra l'immagine */
 display: flex;
