@@ -147,11 +147,11 @@ nav ul li:hover ul {
 
 /* Sfondo immagine per i div specifici */
 .split-screen .left {
-  background-image: url("imgs/Left.jpg");
+  background-image: url("Left.jpg");
 }
 
 .split-screen .right {
-  background-image: url("imgs/Right.jpg");
+  background-image: url("Right.jpg");
   background-size: cover;
 }
 
@@ -198,8 +198,8 @@ nav ul li:hover ul {
 }
 
 .intro h1 {
-  font-family: "Homemade Apple", serif;
   color: white;
+  font-family: "Homemade Apple"
   font-size: 3rem;
 }
 
@@ -237,13 +237,14 @@ footer {
   color: white;
   padding: 10px 0;
   text-align: center;
+  font-family: "Homemade Apple", serif;
   width: 100%;
   font-size: 0.8rem;
   border-top: 1px solid #444;
 }
 
 footer a {
-  color: #333;
+  color: #aaa;
   text-decoration: none;
 }
 
