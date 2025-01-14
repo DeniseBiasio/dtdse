@@ -152,7 +152,7 @@ nav ul li:hover ul {
 
 .split-screen .right {
   background-image: url("Right.jpg");
-  background-size: contain;
+  background-size: cover;
 }
 
 /* Testo sopra i blocchi */
@@ -174,13 +174,15 @@ nav ul li:hover ul {
   height: calc(100vh - 50px);
   background-image: url('Cut.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
   padding: 20px;
+  box-sizing: border-box;
   position: relative;
 }
 
@@ -231,11 +233,11 @@ nav ul li:hover ul {
 footer {
   background-color: #333;
   color: white;
-  padding: 20px 0;
+  padding: 10px 0;
   text-align: center;
-  font-family: "Josefin Slab", serif;
+  font-family: "Homemade Apple", serif;
   width: 100%;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   border-top: 1px solid #444;
 }
 
@@ -269,6 +271,7 @@ footer a:hover {
     text-align: center;
     justify-content: center;
     padding: 10px;
+    background-size: contain;
   }
 
   .intro h1 {
@@ -291,7 +294,13 @@ footer a:hover {
   }
 
   footer {
-    font-size: 0.8rem;
-    padding: 10px;
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .split-screen .right {
+    background-size: cover;
   }
 }
