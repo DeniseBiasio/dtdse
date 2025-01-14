@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Assicurati che padding e bordo non influenzino le dimensioni degli elementi */
+  box-sizing: border-box;
 }
 
 /*Font*/
@@ -14,14 +14,14 @@
 
 /* Impostazioni base per html e body */
 html, body {
-  height: 100%; /* Assicura che occupino tutta l'altezza */
-  margin: 0;    /* Rimuove eventuali margini di default */
+  height: 100%;
+  margin: 0;
   padding: 0;
 }
 
 /* Aggiungi un padding-top per evitare che la navbar copra il contenuto */
 body {
-  padding-top: 50px; /* Altezza della navbar fissa */
+  padding-top: 50px;
 }
 
 /* Navbar */
@@ -271,7 +271,7 @@ footer a:hover {
     text-align: center;
     justify-content: center;
     padding: 10px;
-    background-size: contain;
+    background-size: cover;
   }
 
   .intro h1 {
