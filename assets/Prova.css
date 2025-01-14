@@ -147,11 +147,11 @@ nav ul li:hover ul {
 
 /* Sfondo immagine per i div specifici */
 .split-screen .left {
-  background-image: url("Left.jpg");
+  background-image: url("imgs/Left.jpg");
 }
 
 .split-screen .right {
-  background-image: url("Right.jpg");
+  background-image: url("imgs/Right.jpg");
   background-size: cover;
 }
 
